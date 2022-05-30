@@ -1,43 +1,74 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
-	<style>
+    <style>
 		.align-center {
 			margin: 0 auto;
 		}
 	</style>
 {% endblock %}
 {% block body %}
-	<div class="row">
-		<div class="col-lg-8 align-center">
-			<h1>Blogs</h1>
-			<table class="table table-striped ">
-				<thead class="thead-dark">
+    <div class="row">
+        <div class="col-lg-8 align-center">
+            <h1>
+                Blogs
+            </h1>
+            {% for blog in blogs %}
+                <h4>
+                    {{ blog.title }}
+                </h4>
+                <p>
+                    {{ blog.body }}
+                </p>
 
-					<tr>
-						<th>Title</th>
-						<th>Short description</th>
-						<th>Edit</th>
-						<th>Delete</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for blog in blogs %}
-						<tr>
-							<td>{{ blog.title }}</td>
-							<td>{{ blog.shortDescription }}</td>
-							<td>
-								<button class="btn btn-primary">Edit</button>
-							</td>
-							<td>
-								<button class="btn btn-danger">Delete</button>
-							</td>
-						</tr>
-					{% endfor %}
-				</tbody>
-			</table>
+                <tr>
+                    <td>
+                        {{ blog.title }}
+                    </td>
+                    <td>
+                        {{ blog.shortDescription }}
+                    </td>
+                    <td>
+                        <button class="btn btn-primary">
+                            Edit
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
 
-		</div>
-	</div>
+        {# 			
+        									<table class="table table-striped ">
+        										<thead class="thead-dark">
+        						
+        											<tr>
+        												<th>Title</th>
+        												<th>Short description</th>
+        												<th>Edit</th>
+        												<th>Delete</th>
+        											</tr>
+        										</thead>
+        										<tbody>
+        											{% for blog in blogs %}
+        												<tr>
+        													<td>{{ blog.title }}</td>
+        													<td>{{ blog.shortDescription }}</td>
+        													<td>
+        														<button class="btn btn-primary">Edit</button>
+        													</td>
+        													<td>
+        														<button class="btn btn-danger">Delete</button>
+        													</td>
+        												</tr>
+        											{% endfor %}
+        										</tbody>
+        									</table>
+        									#}
 
+        </div>
+    </div>
 
 {% endblock %}
